@@ -12,13 +12,7 @@ fi
 
 git switch main
 
-if git pull origin main
-then
-    #rm -rf build
-    #cmake -S . -B build -D CMAKE_BUILT_TYPE=Release
-    #cmake --build build --parallel $(nproc) --target all
-    #cmake --install build
-fi
+git pull origin main
 
 interfaces=( $(ip link | sed -n '/^[0-9]\+:/s/^[0-9]\+:\s\+\([a-z0-9]\+\):.*/\1/p' | grep -v 'lo') )
 
