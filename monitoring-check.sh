@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-base=/opt/projects/monitoring
+base=/opt/monitoring
 
 mkdir -p "$base"
 pushd "$base" || exit 1
@@ -10,11 +10,11 @@ then
     git clone https://github.com/briansalehi/monitoring.git
 fi
 
+git switch main
+
 if git pull origin main
 then
-    rm -rf build
-    git switch main
-    cp monitoring /usr/local/bin
+    #rm -rf build
     #cmake -S . -B build -D CMAKE_BUILT_TYPE=Release
     #cmake --build build --parallel $(nproc) --target all
     #cmake --install build
